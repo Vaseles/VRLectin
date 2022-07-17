@@ -8,7 +8,7 @@ window.addEventListener("resize", onWindowResize);
 
 //
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x34aeeb);
+scene.background = new THREE.Color(0xA47E3B);
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
@@ -45,31 +45,35 @@ groundMesh.rotateX(-Math.PI/2);
 scene.add(groundMesh);
 
 //Box
-// const boxTexture = textureLoader.load("src/textures/crate.gif");
-// const boxGeometry = new THREE.BoxGeometry(10, 10, 10);
-// const boxMaterial = new THREE.MeshPhongMaterial({map: boxTexture});
-// const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-// boxMesh.translateY(10).translateZ(-30);
-// scene.add(boxMesh);
+const boxTexture = textureLoader.load("src/textures/list.jpg");
+const boxGeometry = new THREE.BoxGeometry(30, 30, 5);
+const boxMaterial = new THREE.MeshPhongMaterial({map: boxTexture});
+const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+boxMesh.translateY(15).translateZ(-15).translateX(10).rotateY(-10)
+scene.add(boxMesh);
 
-// //Cone
-// const coneTexture = textureLoader.load("src/textures/hardwood2_diffuse.jpg");
-// const coneGeometry = new THREE.ConeGeometry(5, 20, 32);
-// const coneMaterial = new THREE.MeshPhongMaterial({map: coneTexture});
-// const coneMesh = new THREE.Mesh(coneGeometry, coneMaterial);
-// coneMesh.translateX(-25).translateY(15).translateZ(-30);
-// scene.add(coneMesh);
+camera.translateZ(30).translateY(4);
 
-// //Cylinder
-// const cylinderTexture = textureLoader.load("src/textures/hardwood2_roughness.jpg");
-// const cylinderGeometry = new THREE.CylinderGeometry(5, 5, 20, 32);
-// const cylinderMaterial = new THREE.MeshPhongMaterial({map: cylinderTexture});
-// const cylinderMesh = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
-// cylinderMesh.translateX(25).translateY(15).translateZ(-30);
-// scene.add(cylinderMesh);
+const cupTexture = textureLoader.load("src/textures/pot.jpg");
+const cupGeometry = new THREE.BoxGeometry(6, 6, 6);
+const cupMaterial = new THREE.MeshPhongMaterial({map: cupTexture});
+const cupMesh = new THREE.Mesh(cupGeometry, cupMaterial);
+cupMesh.translateY(3).translateZ(-10).translateX(-10).rotateY(5)
+scene.add(cupMesh);
 
-camera.translateZ(40).translateY(5);
+const treeTexture = textureLoader.load("src/textures/leaves.jpg");
+const treeGeometry = new THREE.CylinderBufferGeometry(5, 5, 5,5);
+const treeMaterial = new THREE.MeshPhongMaterial({map: treeTexture});
+const treeMesh = new THREE.Mesh(treeGeometry, treeMaterial);
+treeMesh.translateY(14).translateZ(-10).translateX(-10).rotateY(5)
+scene.add(treeMesh);
 
+const stickTexture = textureLoader.load("src/textures/bark.jpg");
+const stickGeometry = new THREE.BoxGeometry(1, 10, 1);
+const stickMaterial = new THREE.MeshPhongMaterial({map: stickTexture});
+const stickMesh = new THREE.Mesh(stickGeometry, stickMaterial);
+stickMesh.translateY(10).translateZ(-10).translateX(-10).rotateY(5)
+scene.add(stickMesh);
 
 function animate() {
 
