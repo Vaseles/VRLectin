@@ -52,7 +52,7 @@ const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
 boxMesh.translateY(15).translateZ(-15).translateX(10).rotateY(-10)
 scene.add(boxMesh);
 
-camera.translateZ(30).translateY(4);
+camera.translateZ(30).translateY(2);
 
 const cupTexture = textureLoader.load("src/textures/pot.jpg");
 const cupGeometry = new THREE.BoxGeometry(6, 6, 6);
@@ -62,10 +62,13 @@ cupMesh.translateY(3).translateZ(-10).translateX(-10).rotateY(5)
 scene.add(cupMesh);
 
 const treeTexture = textureLoader.load("src/textures/leaves.jpg");
-const treeGeometry = new THREE.CylinderBufferGeometry(5, 5, 5,5);
+// const treeGeometry = new THREE.CylinderBufferGeometry(5, 5, 5,5);
+// const treeGeometry = new THREE.ConeBufferGeometry(5,10, 5);
+const treeGeometry = new THREE.IcosahedronBufferGeometry(6);
+// const treeGeometry = new THREE.SphereBufferGeometry(7,7,7)
 const treeMaterial = new THREE.MeshPhongMaterial({map: treeTexture});
 const treeMesh = new THREE.Mesh(treeGeometry, treeMaterial);
-treeMesh.translateY(14).translateZ(-10).translateX(-10).rotateY(5)
+treeMesh.translateY(16).translateZ(-10).translateX(-10).rotateY(-3).rotateZ(5)
 scene.add(treeMesh);
 
 const stickTexture = textureLoader.load("src/textures/bark.jpg");
@@ -74,6 +77,14 @@ const stickMaterial = new THREE.MeshPhongMaterial({map: stickTexture});
 const stickMesh = new THREE.Mesh(stickGeometry, stickMaterial);
 stickMesh.translateY(10).translateZ(-10).translateX(-10).rotateY(5)
 scene.add(stickMesh);
+
+// const penTexture = textureLoader.load("src/textures/bark.jpg");
+const penGeometry = new THREE.BoxGeometry(1, 10, 1);
+const penMaterial = new THREE.MeshPhongMaterial({color: 0x900000 });
+const penMesh = new THREE.Mesh(penGeometry, penMaterial);
+
+penMesh.translateY(1).translateZ(-1).translateX(-1).rotateY(1)
+scene.add(penMesh);
 
 function animate() {
 
