@@ -79,11 +79,10 @@ stickMesh.translateY(10).translateZ(-10).translateX(-10).rotateY(5)
 scene.add(stickMesh);
 
 // const penTexture = textureLoader.load("src/textures/bark.jpg");
-const penGeometry = new THREE.BoxGeometry(1, 10, 1);
+const penGeometry = new THREE.BoxGeometry(.6, 3, .6);
 const penMaterial = new THREE.MeshPhongMaterial({color: 0x900000 });
 const penMesh = new THREE.Mesh(penGeometry, penMaterial);
-
-penMesh.translateY(1).translateZ(-1).translateX(-1).rotateY(1)
+penMesh.translateY(.3).translateZ(-1).translateX(-10).rotateZ(1.6)
 scene.add(penMesh);
 
 function animate() {
